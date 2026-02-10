@@ -122,43 +122,6 @@ docker-compose exec php bin/phpunit tests/Unit
 docker-compose exec php bin/phpunit tests/Integration
 ```
 
-## Project Structure
-
-```
-├── config/                 # Symfony configuration
-├── docker/                 # Docker configuration files
-│   ├── nginx/             # Nginx config
-│   └── php/               # PHP Dockerfile
-├── migrations/            # Database migrations
-├── public/                # Web entry point
-├── src/
-│   ├── Controller/        # API controllers
-│   │   └── Api/
-│   │       ├── Admin/     # Admin endpoints (JWT protected)
-│   │       ├── PublicController.php
-│   │       └── ReservationController.php
-│   ├── DataFixtures/      # Test data
-│   ├── Entity/            # Doctrine entities
-│   ├── Exception/         # Custom exceptions
-│   ├── Repository/        # Doctrine repositories
-│   └── Service/           # Business logic
-├── tests/
-│   ├── Integration/       # Integration tests
-│   └── Unit/              # Unit tests
-├── docker-compose.yml
-└── README.md
-```
-
-## Technologies
-
-- PHP 8.2
-- Symfony 6.4
-- Doctrine ORM
-- MySQL 8.0
-- JWT Authentication (LexikJWTAuthenticationBundle)
-- PHPUnit 10
-- Docker
-
 ## Default Admin Credentials
 
 - Email: `admin@cinema.pl`
