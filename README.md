@@ -13,7 +13,7 @@ REST API application for cinema seat reservations built with Symfony 6.4.
 
 ```bash
 git clone https://github.com/DawidKraszkiewicz/reservation.git
-cd rekrutacja
+cd reservation
 docker-compose up -d --build
 ```
 
