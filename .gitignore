@@ -1,0 +1,46 @@
+# Symfony application
+/vendor/
+/var/
+/.env.local
+/.env.local.php
+/.env.*.local
+/.phpunit.cache/
+/phpunit.xml.bak
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# Docker
+/docker/php/xdebug.log
+
+# JWT keys
+/config/jwt/*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: cinema_php
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+    networks:
+      - cinema_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: cinema_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - cinema_network
+
+  database:
+    image: mysql:8.0
+    container_name: cinema_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cinema
+      MYSQL_USER: cinema
+      MYSQL_PASSWORD: cinema
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/database/init-testing.sql:/docker-entrypoint-initdb.d/init-testing.sql
+    networks:
+      - cinema_network
+
+networks:
+  cinema_network:
+    driver: bridge
+
+volumes:
+  db_data:
